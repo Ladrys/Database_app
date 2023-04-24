@@ -1,0 +1,5 @@
+Ano, bylo by dobré ošetřit výjimku, která by mohla nastat při pokusu o přístup k atributu connection, když připojení k databázi ještě nebylo vytvořeno.
+
+Může se to stát například tehdy, když se metoda cursor() volá předtím, než je metoda connect() zavolána. V takovém případě by mohla být vyvolána výjimka typu AttributeError, protože atribut connection není definován.
+
+Pro ošetření této výjimky by se mohlo použít jednoduché řešení, kdy by se v metodě cursor() nejdříve ověřilo, zda je atribut connection definován, a když ne, tak by se nejprve zavolala metoda connect() pro vytvoření připojení k databázi.
